@@ -25,7 +25,6 @@ def missing_char(str, n):
   front=str[:n]
   back=str[n+1:]
   return front+back
-
 #test case
 # print(missing_char('kitten', 1))
 
@@ -43,5 +42,58 @@ def binCon(a):
         place=place-1
 
     return total
-
+# test case
 # print(binCon(10111111))
+
+'''
+This function takes a single positive interger parameter and returns
+the sum of the digits
+Paramets: i>=0
+return: returns sum of the digits
+
+precondition: i is a valid integer
+'''
+
+def sumDigits(a):
+    sumdigits=0
+    #casting is the process of changing type
+    a=str(a)
+
+    #Fundamental skill: looping through string
+
+    #count, check, change
+    for i in range(0, len(a), 1):
+        sumdigits+=int(a[i])
+
+    return sumdigits
+#test case
+#print(sumDigits(123))
+
+
+'''
+This function takes a single positive interger parameter and returns
+the sum of the digits
+Paramets: i>=0
+return: returns sum of the digits
+
+precondition: i is a valid integer
+'''
+def sumDigitsA(a):
+    total=0
+
+
+    while(a>0):
+        total+=a%10 # access the ones digit
+        a=a//10 # integer division that removes ones digit
+
+    # Trace
+    # a=57
+
+    # a| a>0
+    # 57| 57>0| TRUE RUN LOOP tptal = 0 +7, a=5
+    # 5| 5>0| TRUE RUN LOOP total=7+5, a=0
+    # 0|0>0| FALSE EXIT LOOP
+
+    return total
+#test case
+#print(sumDigitsA(1234))

@@ -8,4 +8,4 @@ function isEven(a){
     return false;
 }
 
-console.log(isEven(4))
+// console.log(isEven(4))

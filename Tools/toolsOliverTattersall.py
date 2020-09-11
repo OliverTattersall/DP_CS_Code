@@ -11,9 +11,9 @@ def isEven(a):
         return False
 
 #test code
-print(isEven(3))
-print(isEven(6))
-print(isEven(2))
+# print(isEven(3))
+# print(isEven(6))
+# print(isEven(2))
 
 
 '''
@@ -27,7 +27,7 @@ def missing_char(str, n):
   return front+back
 
 #test case
-print(missing_char('kitten', 1))
+# print(missing_char('kitten', 1))
 
 
 
@@ -44,4 +44,4 @@ def binCon(a):
 
     return total
 
-print(binCon(10111111))
+# print(binCon(10111111))

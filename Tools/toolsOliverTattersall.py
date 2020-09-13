@@ -97,3 +97,35 @@ def sumDigitsA(a):
     return total
 #test case
 #print(sumDigitsA(1234))
+
+
+def scaleElementsA(num, list):
+    
+    for i in range(len(list)):
+        list[i]=list[i]*num
+
+    return list
+
+# test case
+# print(scaleElementsA(2, [1,2,3,4]))
+
+def scaleElementsB(num, list):
+    newlst=[]
+    for i in range(len(list)):
+        newlst.append(list[i]*num)
+    return newlst
+
+#test case
+#print(scaleElementsB(2, [1,2,3,4]))
+
+
+def addStringsSmallLarge(stra, strb):
+    str=""
+    if len(stra)>len(strb):
+        str=stra+strb
+    else:
+        str=strb+stra
+    return str
+
+# test case
+# print(addStringsSmallLarge("banana", "mango"))

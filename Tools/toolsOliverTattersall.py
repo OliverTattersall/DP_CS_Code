@@ -118,6 +118,12 @@ def scaleElementsB(num, list):
 #test case
 #print(scaleElementsB(2, [1,2,3,4]))
 
+import numpy
+def scaleElementsC(num, lst):
+    arr=numpy.array(lst)
+    return list(arr*num)
+
+print(scaleElementsC(2, [1,2,3,4]))
 
 def addStringsSmallLarge(stra, strb):
     str=""

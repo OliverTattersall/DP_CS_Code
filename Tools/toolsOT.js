@@ -62,3 +62,44 @@ function binCon(a){
 }
 
 // console.log(binCon(10))
+
+
+// Function that finds the maximum number in a list
+function maxnum(lst){
+    var max=lst[0]
+    for(i=0;i<lst.length(); i++){
+        if(lst[i]>max){
+            max=lst[i]
+        }
+    }
+    return max
+}
+
+// console.log(maxnum([1,4,3,65,7,9,56]))
+
+
+// Function that finds the minimum number in a list
+
+function minnum(lst){
+
+    min=lst[0] //assume correct value to element in the list
+
+    for(i=0; i<lst.length();i++){
+        if(lst[i]<min){
+            min=lst[i]
+        }
+    }
+    return min
+}
+// console.log(minnum([1,4,3,65,7,9,56]))
+
+// Function that finds the minimum number in a list
+// Uses sort function
+function minnumB(lst){
+    lst.sort(function(lst,b){ // short hand notation for sorting integers
+        return lst-b
+    })
+    return lst[0]
+}
+
+// console.log(minnumB([5,6,7,2,1]))

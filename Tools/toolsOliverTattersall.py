@@ -177,3 +177,81 @@ def addStringsSmallLarge(stra, strb):
 
 # test case
 # print(addStringsSmallLarge("banana", "mango"))
+
+
+'''
+Function to find maximum value in a list
+
+'''
+
+def maxnum(lst):
+    lst.sort()#sorts list. Affects the reference meaning original list is changed
+    return lst[-1]
+
+# testcase
+# print(maxnum([2,5,7,2,1,9,20]))
+
+'''
+Function to find minimum value in a list
+
+'''
+def minnum(lst):
+    lst.sort()
+    return lst[0]
+
+# testcase
+# print(minnum([2,5,7,2,1,9,20]))
+
+'''
+Funtion that takes the average of the numbers in a list
+'''
+
+def average(lst):
+    return int(sum(lst)/len(lst))
+
+# print(average([1,2,3]))
+
+'''
+Function that creates a truth table that will have n columns.
+Returns a string containing n columns with 2^n lines, each line contains 1 combination
+'''
+
+def truthtable(n):
+    table=[]
+    table2=[]
+    temp=[]
+    total=2**n
+    finalstr=""
+    for i in range(n):
+        on=False
+        count=2**(i)
+        timer=count
+        for j in range(total):
+            if timer==0:
+                if on:
+                    on=False
+                else:
+                    on=True
+                timer=count
+            if on:
+                temp.append(1)
+            else:
+                temp.append(0)
+            timer=timer-1
+        table.insert(0, temp)
+        temp=[]
+
+    for i in range(total):
+        temp=[]
+        for j in range(len(table)):
+            temp.append(table[j][i])
+            finalstr+=str(table[j][i])
+            if j==n-1:
+                finalstr+="\n"
+        table2.append(temp)
+        
+    print(table2)
+    return finalstr
+
+# testcase
+print(truthtable(3))

@@ -20,7 +20,7 @@ function sumDigits(a){
     return sumdigits
 }
 
-console.log(sumDigits(123))
+//console.log(sumDigits(123))
 
 function scaleElementsA(num, list){
     for(i=0; i<list.length; i++){
@@ -53,3 +53,12 @@ function addStringsSmallLarge(stra, strb){
 }
 
 // console.log(addStringsSmallLarge("banana", "mango"))
+
+
+// converts a base 10 number into a base 2 number
+function binCon(a){
+    
+    return a.toString(10)
+}
+
+// console.log(binCon(10))

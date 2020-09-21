@@ -254,4 +254,24 @@ def truthtable(n):
     return finalstr
 
 # testcase
-print(truthtable(3))
+# print(truthtable(3))
+
+
+'''
+Function that goes through list of strings that contain two strings separated by a space 
+and splits into into two lists with the first words in the first list and the second words 
+in the second list
+'''
+
+def splitthestr(lst):
+    first=[]
+    second=[]
+    for i in range(len(lst)):
+        a,b=lst[i].split(" ")
+        first.append(a)
+        second.append(b)
+
+    return first, second
+
+# test case
+# print(splitthestr(["hello world", "good bye", "good morning"]))

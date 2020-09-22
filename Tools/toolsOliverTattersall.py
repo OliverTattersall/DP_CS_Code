@@ -275,3 +275,35 @@ def splitthestr(lst):
 
 # test case
 # print(splitthestr(["hello world", "good bye", "good morning"]))
+
+
+
+'''
+This function reads the content of the file and copy it to a list.  It returns the list containing the files contents.
+
+Parameter: String name
+
+Precondition - name is a valid file name
+'''
+
+def readFileToList(str):
+    myfile=open(str, "r")
+    lst=myfile.readlines()
+    return lst
+
+# print(readFileToList("test"))
+
+'''
+This function takes the passed list and copy the contents into the file named name. 
+
+Parameter: List l, String name
+
+Returns: a list containing all the elements in the file name
+'''
+
+def writeListToFile(lst, str):
+    myfile=open(str, "a")
+    for i in range(len(lst)):
+        myfile.write(lst[i])
+
+# writeListToFile(["hello", "mr", 'johnson'], "test")

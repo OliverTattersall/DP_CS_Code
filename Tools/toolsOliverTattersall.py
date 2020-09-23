@@ -1,3 +1,5 @@
+import random # imports module random that allows for random numbers in test cases
+
 '''
 isEven takes a single integer value a >= 0 and returns true if it is even and false otherwise
 '''
@@ -214,6 +216,10 @@ def average(lst):
 '''
 Function that creates a truth table that will have n columns.
 Returns a string containing n columns with 2^n lines, each line contains 1 combination
+
+Parameters: Integer n
+
+Preconditions: n>=0
 '''
 
 def truthtable(n):
@@ -254,7 +260,7 @@ def truthtable(n):
     return finalstr
 
 # testcase
-# print(truthtable(3))
+# print(truthtable(0))
 
 
 '''
@@ -302,10 +308,11 @@ Returns: a list containing all the elements in the file name
 '''
 
 def writeListToFile(lst, str):
-    myfile=open(str, "a")
+    myfile=open("..//"+str, "a")
     for i in range(len(lst)):
-        myfile.write(lst[i])
+        myfile.write(lst[i]+"\n")
 
+    myfile.close()
 # writeListToFile(["hello", "mr", 'johnson'], "test")
 
 
@@ -343,3 +350,142 @@ def findPrimes(n):
 # testcase
 # print(findPrimes(13))
 
+'''
+Function that takes a list of integers and returns it sorted from lowest to highest
+
+Parameters: list of Integers
+
+Conditions 
+'''
+# def quickSort(lst):
+#     def swap(lst, index1, index2):
+#         print(lst)
+
+#     def partition(lst, low, high):
+#         print("")
+#         return lst
+
+    
+#     def sort(lst, low, high):
+#         if low<high:
+#             p=partition(lst, low, high)
+
+#     return sort(lst, 0, len(lst)-1)
+
+
+# test case
+# print(quickSort([1,9,47,20,40,52,32,4]))
+
+
+
+'''
+This function takes a list of integers and returns a sum of all integers that are multiples of 3
+
+Parameters: list l
+
+Preconditions: list must have integers
+'''
+
+def findModSum1(lst):
+    sum=0
+    for i in range(len(lst)):
+        if lst[i]%3==0:
+            sum=sum+lst[i]
+    return sum
+
+# testcase
+# print(findModSum1([1,6,9,1,5,9,0,3]))
+
+'''
+This function takes a list of integers and returns a sum of all integers that are between a and b
+Parameters: int[] arr, int a, int b
+Returns: int
+
+'''
+def findModSum2(lst, a, b):
+    sum=0
+    if a>b:
+        temp=b
+        temp2=a
+        a=temp
+        b=temp2
+    for i in range(len(lst)):
+        if lst[i]>a and lst[i]<b:
+            sum=sum+lst[i]
+
+    return sum
+
+# testcase
+# print(findModSum2([1,2,3,4,5,6,7], 6, 2))
+'''
+This function takes a list of integers and two integers and returns the sum of all integers that are not factors of a or b
+
+Name: findModSum3
+Parameters: int[] values, int a, int b
+Returns: int
+
+Precondition: values is a list of integers of any size and a and b are valid positive integer values. 
+'''
+def findModSum3(lst, a, b):
+    sum=0
+    for i in range(len(lst)):
+        if lst[i]%a==0 and lst[i]%b==0:
+            
+            sum=sum+lst[i]
+
+    return sum
+
+# testcase
+# print(findModSum3([1,2,3,4,5,6,7], 3, 2))
+
+
+'''
+
+'''
+
+def findModSum4(lst):
+    sum=0
+    string=''
+    for i in range(len(lst)):
+        string+=str(lst[i])
+    string=string.replace(".", "")
+    for i in range(len(string)):
+        sum+=int(string[i])
+    return sum
+
+# testcase
+# print(findModSum4([1.2, 3.14, 7.89]))
+
+'''
+The function takes a Strings and returns the string in reverse 
+
+Name: reverseWordA
+Parameters: String a
+Returns: string
+
+'''
+def reverseWordA(a):
+    return a[::-1]
+
+# testcase
+# print(reverseWordA("cat"))
+
+'''
+ The function takes a list of Strings and returns a new string of each word constructed in reverse.  
+
+Name: reverseWordB
+Parameters: String[] a
+Returns: String
+
+Precondition: a list a list of any length and it contains strings of any length
+'''
+
+def reverseWordB(lst):
+    result=''
+    for i in range(len(lst)):
+        result+=lst[i][::-1]
+
+    return result
+
+# testcase
+# print(reverseWordB(['cat', 'dog']))

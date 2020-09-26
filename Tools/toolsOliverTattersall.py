@@ -2,6 +2,8 @@ import random # imports module random that allows for random numbers in test cas
 
 '''
 isEven takes a single integer value a >= 0 and returns true if it is even and false otherwise
+Parameters: Integer a
+Conditions: 0<=a<10
 '''
 
 
@@ -17,15 +19,31 @@ def isEven(a):
 # print(isEven(6))
 # print(isEven(2))
 
+'''
+This functions takes an integer and returns if all digits in it are Even
+Parameters: Integer n
+Conditions: n>0
+'''
+def allEven(n):
+    even=True
+    while(n>0)and(even==True):
+        if(n%10)%2==1:
+            even=False
+        n=n//10
+    return even
+
+# testcode
+# print(allEven(256))
+# print(allEven(246))
 
 '''
 Given a non-empty string and an int n, return a new string where the char at index n has been removed. 
-The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..len(str)-1 inclusive)
-
+Parameters: String a
+Conditions: 0<n<len(a)-1
 '''
-def missing_char(str, n):
-  front=str[:n]
-  back=str[n+1:]
+def missing_char(a, n):
+  front=a[:n]
+  back=a[n+1:]
   return front+back
 #test case
 # print(missing_char('kitten', 1))
@@ -34,7 +52,11 @@ def missing_char(str, n):
 
 
 # Binary Conversion
-
+'''
+This Function takes a binary number and turns it into a base 10 number
+Parameters: Integer a
+Conditions: a contains only 1's and 0's
+'''
 def binCon(a):
     a=str(a)
     total=0
@@ -50,10 +72,10 @@ def binCon(a):
 '''
 This function takes a single positive interger parameter and returns
 the sum of the digits
-Paramets: i>=0
+Parameters: Integer i
 return: returns sum of the digits
 
-precondition: i is a valid integer
+precondition: i>0
 '''
 
 def sumDigits(a):
@@ -75,10 +97,10 @@ def sumDigits(a):
 '''
 This function takes a single positive interger parameter and returns
 the sum of the digits
-Paramets: i>=0
+Parameters: Integer i
 return: returns sum of the digits
 
-precondition: i is a valid integer
+precondition: i>=0
 '''
 def sumDigitsA(a):
     total=0
@@ -104,9 +126,9 @@ def sumDigitsA(a):
 This function takes an integer, a,  and a list of integers, b, and scales
 each integer in the list by a, the first integer. 
 
-paramets: a>0, len(b)>0
+parameters: Integer a, List b
 return none
-precondition: a is integer, b is list of integers
+
 
 '''
 def scaleElementsA(a, b):
@@ -126,7 +148,7 @@ def scaleElementsA(a, b):
 This function takes an integer, a,  and a list of integers, b, and scales
 each integer in the list by a, the first integer. 
 
-paramets: a>0, len(b)>0
+parameters: a>0, len(b)>0
 return b
 precondition: a is integer, b is list of integers
 '''
@@ -162,10 +184,9 @@ def scaleElementsC(a, b):
 '''
 this function takes two strings, stra and strb, and returns a new string
 in the form of Larger string+Smaller string
-if both strings are the same length the first string passed
-will be the first substring in the new string
 
-paramets: len(stra)>0, len(strb)>0
+parameters: String stra, String strb
+Conditions: len(stra)>0, len(strb)>0
 
 '''
 
@@ -183,6 +204,8 @@ def addStringsSmallLarge(stra, strb):
 
 '''
 Function to find maximum value in a list
+Parameters: List lst
+Conditions: len(lst)>0
 
 '''
 
@@ -195,7 +218,8 @@ def maxnum(lst):
 
 '''
 Function to find minimum value in a list
-
+Parameters: List lst
+Conditions: len(lst)>0
 '''
 def minnum(lst):
     lst.sort()
@@ -206,6 +230,8 @@ def minnum(lst):
 
 '''
 Funtion that takes the average of the numbers in a list
+Parameters: List lst
+Conditions: len(lst)>0
 '''
 
 def average(lst):
@@ -267,6 +293,8 @@ def truthtable(n):
 Function that goes through list of strings that contain two strings separated by a space 
 and splits into into two lists with the first words in the first list and the second words 
 in the second list
+Parameters: List lst
+Conditions: len(lst)>0
 '''
 
 def splitthestr(lst):
@@ -324,7 +352,6 @@ Parameters: Integer n
 Conditions: n>2
 '''
 
-
 def findPrimes(n):
     
     primes=[] #list where all primes will go into
@@ -340,41 +367,14 @@ def findPrimes(n):
 
         p+=1 # increments p to test the next integer
 
-
     for i in range(2, n+1, 1): # loops from 2 to n
         if prime[i]==True: # tests to see if that number is prime
             primes.append(i) # if prime appends it to the list primes
 
     return primes #returns list of primes between 2 and n inclusive
-
 # testcase
 # print(findPrimes(13))
 
-'''
-Function that takes a list of integers and returns it sorted from lowest to highest
-
-Parameters: list of Integers
-
-Conditions 
-'''
-# def quickSort(lst):
-#     def swap(lst, index1, index2):
-#         print(lst)
-
-#     def partition(lst, low, high):
-#         print("")
-#         return lst
-
-    
-#     def sort(lst, low, high):
-#         if low<high:
-#             p=partition(lst, low, high)
-
-#     return sort(lst, 0, len(lst)-1)
-
-
-# test case
-# print(quickSort([1,9,47,20,40,52,32,4]))
 
 
 
@@ -398,7 +398,7 @@ def findModSum1(lst):
 
 '''
 This function takes a list of integers and returns a sum of all integers that are between a and b
-Parameters: int[] arr, int a, int b
+Parameters: List lst, Integer a, Integer b
 Returns: int
 
 '''
@@ -421,10 +421,10 @@ def findModSum2(lst, a, b):
 This function takes a list of integers and two integers and returns the sum of all integers that are not factors of a or b
 
 Name: findModSum3
-Parameters: int[] values, int a, int b
+Parameters: List values, int a, int b
 Returns: int
 
-Precondition: values is a list of integers of any size and a and b are valid positive integer values. 
+Precondition: a>0, b>0
 '''
 def findModSum3(lst, a, b):
     sum=0
@@ -440,6 +440,8 @@ def findModSum3(lst, a, b):
 
 
 '''
+This Function takes a list of floats and returns the sum of all digits
+Parameters: List lst
 
 '''
 
@@ -489,3 +491,178 @@ def reverseWordB(lst):
 
 # testcase
 # print(reverseWordB(['cat', 'dog']))
+
+
+'''
+Function finds sum of all even fibonacci numbers between 0 and n
+
+parameters: Integer n
+
+COnditions n>0
+'''
+
+def EulerProblem2(n):
+    fib=[1,1]
+    sum=0
+    while fib[-1]<n:
+        newval=fib[-1]+fib[-2]
+        if newval%2==0:
+            sum+=newval
+        fib.append(newval)
+    return sum
+
+# test case
+# print(EulerProblem2(4000000))
+
+'''
+This function finds the largest prime factor in the number n
+Parameters: Integer n
+Conditions: n>0
+'''
+import math
+def EulerProblem3(n):
+    primelst=findPrimes(int(math.sqrt(n))) #find primes between 2 and the square root of n using a findPrimes() function above. It does this 
+    unfound=False
+    count=len(primelst)-1
+    largest=0
+    while unfound!=True:
+        if n%primelst[count]==0:
+            largest=primelst[count]
+            unfound=True
+        count=count-1
+
+    return largest
+
+# print(EulerProblem3(600851475143))
+
+'''
+This Function finds the largest palindrome that is the product of 2 n-digit factors. 
+Parameter: Integer n
+Conditions: n>0
+'''
+
+def EulerProblem4(n):
+    highestproduct=int("9"*n)**2
+    print(highestproduct)
+    for i in range(highestproduct, 0, -1):
+        if str(i)==str(i)[::-1]:
+            # print(i)
+            for j in range(i,10**(n-1), -1):
+                if i%j==0:
+                    if len(str(j))==n and len(str(i//j))==n:
+                        return j*(i//j)
+            
+# print(EulerProblem4(2))
+# print(EulerProblem4(3))
+
+
+'''
+This function finds the difference between ((1+2..+n)^2)-(1^2+2^2...+n^2)
+Parameters: Integer n
+Conditions: n>0
+'''
+def EulerProblem6(n):
+    sum1=0
+    sum2=sum([i for i in range(1, n+1)])**2
+    for i in range(1, n+1):
+        sum1+=i**2
+    return sum2-sum1
+
+# print(EulerProblem6(100))
+
+'''
+This function finds the nth prime
+Parameters: Integer n
+Conditions: n>0
+'''
+
+def EulerProblem7(n):
+    test=False
+    counter=n*10
+    while test!=True:
+        lst=findPrimes(counter)
+        if len(lst)>=n:
+            test=True
+            return lst[n-1]
+        counter=counter*5
+
+# print(EulerProblem7(10001))
+
+'''
+
+'''
+
+def EulerProblem8(n, t):
+    product=0
+    n=str(n)
+    possibilities=[]
+    
+    #this while removes the digits not available because they would have a 0 in their product
+    while n.count("0")!=0:
+        # print(len(n))
+
+
+        index=n.find("0")
+        # print(index)
+        ind=n.find("0", index+1)
+        # print(ind)
+        if index<=t:
+            
+            # ind=n.find("0", index+1)
+            if ind-index<=13 and ind!=-1:
+                # print(True)
+                # print(n[0:ind])
+                n=n[ind:]
+            else:
+                n=n[index+1:]
+        elif index>t and ind!=-1:
+            possibilities.append(n[0:index])
+            # ind=n.find("0", index+1)
+            if ind-index<=13:
+                n=n[ind-1:]
+            else:
+                n=n[index+1:]
+            
+        elif index<=t and ind==-1:
+            if len(n)-index<=t:
+                n=""
+            else:
+                n=n[index+1:]
+            
+        elif index>t and ind==-1:
+            possibilities.append(n[0:index])
+            if len(n)-index<=t:
+                n=n[0:index]
+            else:
+                possibilities.append(n[index+1:])
+                n=""
+    
+
+    print(possibilities)#list full of groups of numbers that can be searched through 
+
+    #for loop that looks through each item in possibilities 
+    for h in range(len(possibilities)):
+        # possibilities[h]=int(possibilities[h])
+        
+        #for loop that goes through every consequitive 13 digits in possibilities[h]
+        for i in range(len(possibilities[h])-t+1):
+            temp=possibilities[h][i:i+t]
+
+            temp2=1
+            #for loop that goes through every digit and multiplies it to a temp value to get the product of the 13 digits
+            for j in range(len(temp)):
+                temp2=temp2*int(temp[j])
+                # print(temp2)
+            if temp2>product:
+                    product=temp2
+            if h==0 and i==0:
+                print(temp, "hello")
+                print("\n",product, "\n")
+
+
+        
+    return product
+
+# print(EulerProblem8(1234502343543, 3))
+print(EulerProblem8(7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450,13))
+

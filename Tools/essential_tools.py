@@ -1,3 +1,6 @@
+import random
+import math
+
 '''
 This function converts a base 10 number to a base 2 number
 Parameters:Integer n
@@ -11,6 +14,7 @@ def base10ToBase2(n):
 # print(base10ToBase2(10))
 # print(base10ToBase2(20))
 # print(base10ToBase2(47))
+# print(base10ToBase2(42))
 
 '''
 This Function takes a binary number and turns it into a base 10 number
@@ -29,6 +33,7 @@ def base2ToBase10(a):
 # test case
 # print(base2ToBase10(10111111))
 # print(base2ToBase10(10100))
+# print(base2ToBase10(1110000))
 
 '''
 This function converts a base 2 number into a base 16 number
@@ -49,12 +54,19 @@ def base2ToHex(n):
         n=n[0:-4]
     return result[::-1]#returns reversed result as each item is appended not put at the beginning
 
-print(base2ToHex("1001010101010"))
+# print(base2ToHex("1001010101010"))
+# print(base2ToHex(10010100101))
 
+'''
+This function converts a base 2 number into a base 16 number
+Parameters: String n
+Conditions: n must be a valid base 2 number
+'''
 def base2ToHexB(n):
     #hex converts a decimal value into its corresponding hexadecimal string
     return hex(base2ToBase10(n))[2:]
-print(base2ToHexB("1001010101010"))
+# print(base2ToHexB("1001010101010"))
+# print(base2ToHexB(10010100101))
 
 '''
 This function converts a Hex value into a base 2 value
@@ -78,6 +90,8 @@ def HexToBase2(n):
     return result
 # print(HexToBase2("12AA"))
 # print(HexToBase2("FF"))
+# print(HexToBase2(70))
+#print(HexToBase2("4A5"))
 
 '''
 This function converts a Hex value into a base 2 value using built in bin function
@@ -88,20 +102,22 @@ def HexToBase2B(n):
     return int(str(bin(int(n,16)))[2:])
 
 # print(HexToBase2B("12AA"))
+# print(HexToBase2("FF"))
+# print(HexToBase2(70))
+#print(HexToBase2("4A5"))
 
 '''
 This function takes a single positive interger parameter and returns
 the sum of the digits
 Parameters: Integer i
 return: returns sum of the digits
-precondition: i>0
+precondition: i>=0
 '''
 
 def sumDigits(a):
     sumdigits=0
     #casting is the process of changing type
     a=str(a)
-
     #Fundamental skill: looping through string
 
     #count, check, change
@@ -111,6 +127,8 @@ def sumDigits(a):
     return sumdigits
 #test case
 #print(sumDigits(123))
+#print(sumDigits("892"))
+# print(sumDigits(0))
 
 '''
 This function takes a list of integers and returns a sum of all integers that are multiples of 3
@@ -127,6 +145,8 @@ def findModSum1(lst):
 
 # testcase
 # print(findModSum1([1,6,9,1,5,9,0,3]))
+# print(findModSum1([1,6,9,1,-3,12,3,8]))
+# print(findModSum1([random.randint(1,100) for i in range(20)]))
 
 '''
 This function takes a list of integers and returns a sum of all integers that are between a and b
@@ -149,6 +169,7 @@ def findModSum2(lst, a, b):
 
 # testcase
 # print(findModSum2([1,2,3,4,5,6,7], 6, 2))
+# print(findModSum2([random.randint(1,100) for i in range(20)], random.randint(1,50), random.randint(25,75)))
 
 '''
 This function takes a list of integers and two integers and returns the sum of all integers that are not factors of a or b
@@ -169,13 +190,13 @@ def findModSum3(lst, a, b):
 
 # testcase
 # print(findModSum3([1,2,3,4,5,6,7], 3, 2))
+# print(findModSum3([random.randint(1,100) for i in range(20)], random.randint(1,10), random.randint(1,10)))
 
 '''
 This Function takes a list of floats and returns the sum of all digits
 Parameters: List lst
 
 '''
-
 def findModSum4(lst):
     sum=0
     string=''
@@ -202,15 +223,16 @@ def reverseWordA(a):
 
 # testcase
 # print(reverseWordA("cat"))
+# print(reverseWordA("hello goodbye"))
+# print(reverseWordA("ks!&#^)!#&$&"))
 
 '''
  The function takes a list of Strings and returns a new string of each word constructed in reverse.  
 
-Name: reverseWordB
-Parameters: String[] a
+Parameters: String a
 Returns: String
 
-Precondition: a list a list of any length and it contains strings of any length
+Precondition:  a list of any length and it contains strings of any length
 '''
 
 def reverseWordB(lst):
@@ -222,3 +244,4 @@ def reverseWordB(lst):
 
 # testcase
 # print(reverseWordB(['cat', 'dog']))
+# print(reverseWordB(["hello", "goodbye", "ciao", "123*(!@&#*)$"]))

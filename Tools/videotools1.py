@@ -5,7 +5,9 @@ Conditions: n>0
 '''
 
 def EulerProblem15(n):
-    # creates 2-dimensional array with n+1 by n+1 dimensions, initialized with integer 1
+    # creates 2-dimensional list with n+1 by n+1 dimensions, initialized with integer 1
+    # a 2-dimensional list is a list containing multiples lists inside of it. Each list has its own index, no different than a 1-dimensional list
+    # to access the values inside of one of the values, another square bracket is added onto the end with the index. Ex. the first value of the first list is accessed as such: list[0][0]
     #Ex. if n=2, it creates: [[1,1,1], [1,1,1], [1,1,1]]
     #this is meant to represent a square, with each item in lst being a row 
     lst=[[1 for i in range(n+1)]for i in range(n+1)] 
@@ -26,6 +28,11 @@ def EulerProblem15(n):
     # 2 | 1 | 2           | 1           | 3 
     # 2 | 2 | 3           | 3           | 6
     # Output= 6  
+
+    #visualization of the 2-d list
+    #[1,1,1]    [1,1,1]   [1,1,1]   [1,1,1]   [1,1,1]
+    #[1,1,1] - >[1,2,1] ->[1,2,3] ->[1,2,3] ->[1,2,3]
+    #[1,1,1]    [1,1,1]   [1,1,1]   [1,3,1]   [1,3,6]
 
     #returns the last number in the last row of lst which will be the highest number with all the combinations
     return lst[-1][-1]
@@ -75,7 +82,7 @@ def EulerProblem17(n):
                 temp.append(int(str(i)[-2:]))
                 #tests if the number is greater than one hundred
                 #if it is it adds i - the last two digits to add a number divisble by 100. 
-                #Ex. 119, adds 19 right above then adds 119-199, 100, now the temporary array has 100,19
+                #Ex. 119, adds 19 right above then adds 119-199, 100, now the temporary list has 100,19
                 if i>100:
                     temp.insert(0, i-int(str(i)[-2:])) 
                 #breaks the for loop meaning j will not continue to decrement until it reaches -1, it will just stop. 
@@ -93,27 +100,37 @@ def EulerProblem17(n):
 
 
         #loops through the temporary list containing the parts of the number
-        for j in range(len(temp)):
+        for k in range(len(temp)):
             #makes sure to see if the number isn't 0 as 0 can be added through numbers like 30 but the letters of zero don't add to the total letters of 30 as it is not thirty zero its just thirty
-            if temp[j]!=0:
+            if temp[k]!=0:
                 #tests to see if the number is greater or equal 100 and if i is divisible by 100 as the hundreds have to be broken up further
                 #Ex. i=201, temp[j]=200, splits into 2 and 100 as the word is two hundred
-                if temp[j]>=100 and i%100!=0:
+                if temp[k]>=100 and i%100!=0:
                     #adds the letters of 100 and of the multiplier, 2 in the above case, as well as 3 for the three letters in 'and'
                     # adds the letters by using the number as a key in the dictionary and getting its corresponding value
-                    totalletters+=dct[100]+dct[temp[j]//100] + 3
+                    totalletters+=dct[100]+dct[temp[k]//100] + 3
                     # the // simple is for integer division meaning the return will be an integer, ex. 200/100 =2.0, 200//100=2
                 #tests to see if i is divisible by a hundred as it will not need to add the 3 extra letters for and
                 # Ex. 100= one hundred, no and
                 elif i%100==0:
-                    totalletters+=dct[100]+dct[temp[j]//100] 
+                    totalletters+=dct[100]+dct[temp[k]//100] 
 
                 #if it is not greater than 100 than that number is used as a key and the value is added to total letters
                 else:
-                    totalletters+=dct[temp[j]]
+                    totalletters+=dct[temp[k]]
 
     #returns an integer stating the total letters between 1 and n
     return totalletters
+
+    #Trace of entire code, n=5
+    # i | j | str(i)[j]| temp | k | temp[k] |totalletters
+    # 1 | 0 |   1      |[1]  | 0 | 1       | 3
+    # 2 | 0 |   2      |[2]  | 0 | 2       | 6
+    # 3 | 0 |   3      |[3]  | 0 | 3       | 11
+    # 4 | 0 |   4      |[4]  | 0 | 4       | 15
+    # 5 | 0 |   5      |[5]  | 0 | 5       | 19
+    #Output = 19
+
 
 # print(EulerProblem17(999))
 # print(EulerProblem17(1))

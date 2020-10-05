@@ -5,12 +5,16 @@ Conditions: n>0
 '''
 
 def EulerProblem15(n):
+
     # creates 2-dimensional list with n+1 by n+1 dimensions, initialized with integer 1
     # a 2-dimensional list is a list containing multiples lists inside of it. Each list has its own index, no different than a 1-dimensional list
-    # to access the values inside of one of the values, another square bracket is added onto the end with the index. Ex. the first value of the first list is accessed as such: list[0][0]
+    # to access the values inside of one of the lists, another square bracket is added onto the end with the index. 
+    # Ex. the first value of the first list is accessed as such: list[0][0]
     #Ex. if n=2, it creates: [[1,1,1], [1,1,1], [1,1,1]]
     #this is meant to represent a square, with each item in lst being a row 
     lst=[[1 for i in range(n+1)]for i in range(n+1)] 
+    
+
 
     # loops from the second row until the last row, with i being the index of each row
     # it skips the first row because the first row and first column need to be kept as ones 
@@ -89,14 +93,14 @@ def EulerProblem17(n):
                 # This does not break the outer loop that loops i only the loop that loops j
                 break
             #if the last 2 digits are not in the teens, this loop takes each digit and multiplies it by its corresponding value and adds it to the temporary list at the beginning of the list using insert method
-            # the ones column is multiplied by one, or 10^0, the tens column is multiplied by 10, or 10^-1, and the hundreds column is multiplied by 100, or 10^2
+            # the ones column is multiplied by one, or 10^0, the tens column is multiplied by 10, or 10^1, and the hundreds column is multiplied by 100, or 10^2
             temp.insert(0, int(str(i)[j])*(10**(len(str(i))-1-j)))
             # Trace Table, i=324
             # j | str(i)[j] | len(str(i))-1-j | 10**len(str(i))-1-j | temp
             # 
             # 2 | 4         | 0               | 1                   | [4|
             # 1 | 2         | 1               | 10                  | [20,4|
-            # 0 | 3         | 2               | 100                 | [300, 20,4|
+            # 0 | 3         | 2               | 100                 | [300, 20,4]
 
 
         #loops through the temporary list containing the parts of the number

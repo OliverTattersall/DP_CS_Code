@@ -64,10 +64,11 @@ Condtions: n>1
 
 '''
 def dictFun(n):
+    n=int(n)
     #creates a dictionary with the key x, and the value x*x for x values between 1 and n inclusive
     dct={x:x*x for x in range(1,n+1,1)}
     return dct
 
 # print(dictFun(10)) 
 # print(dictFun(1))
-# print(dictFun(4))
+# print(dictFun('4'))

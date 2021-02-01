@@ -1,3 +1,5 @@
+#incomplete
+
 N=int(input())
 balls=input().split()
 for i in range(N):

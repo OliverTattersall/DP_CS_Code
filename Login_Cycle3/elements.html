@@ -19,9 +19,22 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" >
         <h1>These are the elements</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore reiciendis magnam hic dolorem id quis. Minus neque excepturi voluptas? Facere totam itaque saepe optio nobis natus, vitae illo velit tenetur.</p>
+        <div class="row" id ="elementDisplay">
+            <div class="col s6 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Card Title</span>
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -29,5 +42,104 @@
 
 
     <script src="auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+
+    <script>
+
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyDsusjHosGuMJHckQM_dh_3g55-NmClN0s",
+            authDomain: "dpcs-firebasedemo.firebaseapp.com",
+            databaseURL: "https://dpcs-firebasedemo.firebaseio.com",
+            projectId: "dpcs-firebasedemo",
+            storageBucket: "dpcs-firebasedemo.appspot.com",
+            messagingSenderId: "348003880438",
+            appId: "1:348003880438:web:b58a21f3aed94452638bd7",
+            measurementId: "G-TVWMXFCDH3"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var database=firebase.database();
+
+        var loc = database.ref("elements/")
+
+        loc.on("value", (snapshot)=>{
+            data=snapshot.val()
+            console.log(data)
+        })
+
+        function createCard(obj){
+            card = `
+            <div class="col s6 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">${obj.name}: ${obj.symbol}</span>
+                        <p>${obj.fact}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+            `
+
+            return card
+        }
+
+        const elementDisplay = document.getElementById("elementDisplay");
+
+
+        var data = 
+			{	
+				"elements": [
+					{ 
+						"name": "Hydogen",
+						"symbol": "H", 
+						"number": 1, 
+						"atomicMass": 1.007947, 
+						"img": "LINK",
+						"fact": "Hydrogen is the most abundent element in the universe"
+					},
+					{
+						"name": "Helium",
+						"symbol": "He",
+						"number": 2, 
+						"atomicMass": 4.002602, 
+						"img": "LINK",
+						"fact": "Helium is a colourless, tasteless and odorless gas"
+
+					}, {
+                        "name": "Lithium",
+						"symbol": "Li",
+						"number": 3, 
+						"atomicMass": 6.941, 
+						"img": "LINK",
+						"fact": "Used to treate bipolar disorder"
+                    }, {
+                        "name": "Beryllium",
+						"symbol": "Be",
+						"number": 4, 
+						"atomicMass": 9.012182, 
+						"img": "LINK",
+						"fact": "Used in weapons and smart phones"
+                    }
+				]
+			}
+
+        console.log(data.elements[0].name)
+        datastr=""
+        for(i=0;i<data.elements.length; i++){
+            datastr+=createCard(data.elements[i])
+
+        }
+        elementDisplay.innerHTML=datastr;
+
+    </script>
 </body>
 </html>
